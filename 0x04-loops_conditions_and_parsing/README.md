@@ -1,0 +1,1 @@
+Shell loops, conditions and parsing huh? been a long time coming
