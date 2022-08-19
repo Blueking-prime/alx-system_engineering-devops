@@ -10,8 +10,7 @@ while ((i<=20)); do
 			echo "bad luck from Japan";;
 		17)
 			echo "bad luck from Italy";;
-		*)
-			echo "$i";;
 	esac
+	echo "$i"
 	((i++))
 done
