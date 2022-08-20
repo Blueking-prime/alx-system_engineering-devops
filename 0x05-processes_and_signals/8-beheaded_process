@@ -2,4 +2,4 @@
 # This is a bash script that kills a process
 
 PID="$(pgrep -f 7-highlander)"
-kill -9 $PID
+kill -9 "$PID"
