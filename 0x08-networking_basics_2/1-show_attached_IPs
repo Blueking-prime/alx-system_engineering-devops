@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This is a program that displays all connected ips
+
+ifconfig | grep 'inet ' | awk {'print $2'}
