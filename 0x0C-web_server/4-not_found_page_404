@@ -2,6 +2,7 @@
 # Configures an ubuntu machine to install nginx and generate custom responses
 
 # Install nginx
+apt-get update
 apt-get -y install nginx
 
 # # Configure Firewall
