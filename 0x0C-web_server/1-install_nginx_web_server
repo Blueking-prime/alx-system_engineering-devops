@@ -2,6 +2,7 @@
 # Configures an ubuntu machine to install nginx and generate custom responses
 
 # Install nginx
+apt-get update
 apt-get -y install nginx
 
 # # Configure Firewall
@@ -14,4 +15,4 @@ apt-get -y install nginx
 echo "Hello World!" > /var/www/html/index.html
 
 # start nginx
-service nginx start
+service nginx restart
