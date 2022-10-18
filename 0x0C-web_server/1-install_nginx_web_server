@@ -4,8 +4,8 @@
 # Install nginx
 apt-get -y install nginx
 
-# Configure Firewall
-ufw allow 'Nginx HTTP'
+# # Configure Firewall
+# ufw allow 'Nginx HTTP'
 
 # # Install curl
 # apt-get -y install curl
@@ -14,4 +14,4 @@ ufw allow 'Nginx HTTP'
 echo "Hello World!" > /var/www/html/index.html
 
 # start nginx
-service nginx restart
+service nginx start
