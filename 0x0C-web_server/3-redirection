@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# Configures an ubuntu machine to install nginx and generate custom responses
+
+# Install nginx
+apt-get -y install nginx
+
+# # Configure Firewall
+# ufw allow 'Nginx HTTP'
+
+# # Install curl
+# apt-get -y install curl
+
+# Change default landing page
+echo "Hello World!" > /var/www/html/index.html
+
+# Modify config to redirect page
+NEW_CONFIG=\
+"server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+	server_name _;
+	location / {
+		try_files \$uri \$uri/ =404;
+	}
+	if (\$request_filename ~ redirect_me){
+		rewrite ^ https://exmaple.com? permanent;
+	}
+}"
+
+echo -e "$NEW_CONFIG" > /etc/nginx/sites-enabled/default
+
+# restart nginx and apply updates
+service nginx restart

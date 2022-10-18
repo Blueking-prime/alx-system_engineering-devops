@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Configures an ubuntu machine to install nginx and generate custom responses
+
+# Install nginx
+apt-get -y install nginx
+
+# # Configure Firewall
+# ufw allow 'Nginx HTTP'
+
+# # Install curl
+# apt-get -y install curl
+
+# Change default landing page
+echo "Hello World!" > /var/www/html/index.html
+
+# start nginx
+service nginx restart
