@@ -2,4 +2,4 @@
 # Configures port 8080 on a docker container
 
 echo "Hello Holberton" > /var/www/html/index.html
-service httpd restart
+service httpd start
