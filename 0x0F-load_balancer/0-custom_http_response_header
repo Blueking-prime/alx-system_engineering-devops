@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# add custom nginx response header
+# shellcheck disable=SC2154
+
+# Modify config to redirect page
+NEW_CONFIG=\
+"server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+	server_name _;
+	location / {
+		try_files \$uri \$uri/ =404;
+        add_header X-Served-By \$hostname;
+	}
+	error_page 404 /404.html;
+	location /404.html {
+		internal;
+	}
+	if (\$request_filename ~ redirect_me){
+		rewrite ^ https://exmaple.com? permanent;
+	}
+}"
+
+echo -e "$NEW_CONFIG" > /etc/nginx/sites-enabled/default
+
+# restart nginx and apply updates
+service nginx restart
