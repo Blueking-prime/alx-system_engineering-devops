@@ -5,17 +5,13 @@
 apt-get update
 apt-get -y install --no-install-recommends software-properties-common
 add-apt-repository -y ppa:vbernat/haproxy-2.6
-apt-get -y install haproxy=2.6.\*
+apt-get -y install haproxy
 
 # Create backup config file
 cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.bk
 
 # Enable init script
-if [ "$(grep -Eco '^ENABLED=[01]$' < /etc/default/haproxy)" -gt 0 ]; then
-	sed -i 's/^ENABLED=0$/ENABLED=1/' /etc/default/haproxy
-else
-	echo "ENABLED=1" >> /etc/default/haproxy
-fi
+echo "ENABLED=1" >> /etc/default/haproxy
 
 # Add config details to file
 CONFIG_DEETS=\
