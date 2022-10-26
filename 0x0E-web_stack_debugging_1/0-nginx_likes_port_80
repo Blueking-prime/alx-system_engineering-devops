@@ -6,8 +6,5 @@ NEW_CONFIG=\
 	listen 80 default_server;
 	listen [::]:80 default_server;
 }"
-
 echo -e "$NEW_CONFIG" > /etc/nginx/sites-enabled/default
-
-# restart nginx and apply updates
 service nginx restart
