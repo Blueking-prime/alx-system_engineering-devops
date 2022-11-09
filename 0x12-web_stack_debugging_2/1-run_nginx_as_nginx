@@ -4,8 +4,7 @@
 su - nginx
 
 # Modify config
-NEW_CONFIG=\
-"server {
+NEW_CONFIG="server {
 	listen 8080;
 	listen [::]:8080;
 }"

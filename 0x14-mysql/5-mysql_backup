@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # Creates and compresses a database dump
-# shellcheck disable=SC2024
 
-sudo mysqldump --all-databases -u root -p "$1" > backup.sql
+mysqldump --all-databases -u root --password="$1" > backup.sql
 tar -cvzf "$(date +%d-%m-%Y).tar.gz" backup.sql
