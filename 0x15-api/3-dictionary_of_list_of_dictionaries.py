@@ -5,13 +5,12 @@
 if __name__ == '__main__':
     import json
     import requests
-    import sys
 
     filename = 'todo_all_employees.json'
     site = 'https://jsonplaceholder.typicode.com'
 
-    user_url = site + '/users'
-    users = requests.get(user_url)
+    users_url = site + '/users'
+    users = requests.get(users_url)
     user_list = []
     for i in users.json():
         user_list.append(i.get('id'))
@@ -20,7 +19,7 @@ if __name__ == '__main__':
 
     for id in user_list:
         task_url = site + '/todos?userId=' + str(id)
-        user_url = user_url + '/' + str(id)
+        user_url = users_url + '/' + str(id)
         todos = requests.get(task_url)
         user = requests.get(user_url)
         name = user.json().get('username')
