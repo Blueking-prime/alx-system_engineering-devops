@@ -19,4 +19,4 @@ def top_ten(subreddit):
             print(i['data']['title'])
             j += 1
     except Exception:
-        print(None)
+        print('None')
