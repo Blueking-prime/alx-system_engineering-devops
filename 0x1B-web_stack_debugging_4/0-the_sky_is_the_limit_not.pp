@@ -1,0 +1,1 @@
+# puppet manifest goes here
